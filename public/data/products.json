@@ -1,0 +1,50 @@
+[
+  {
+    "nombre": "MORIAH Clásico",
+    "origen": "Huila, Colombia",
+    "descripcion": "Balance perfecto entre cuerpo y acidez, con notas de chocolate y caramelo. Ideal para comenzar el día con energía.",
+    "caracteristicas": ["Medio", "Chocolate", "Caramelo"],
+    "imagen": "/images/MORIAH_6.png",
+    "etiqueta": "Bestseller"
+  },
+  {
+    "nombre": "MORIAH Premium",
+    "origen": "Nariño, Colombia",
+    "descripcion": "Selección especial de altura. Perfil complejo con notas florales, cítricos y dulzura natural para paladares exigentes.",
+    "caracteristicas": ["Claro", "Floral", "Cítrico"],
+    "imagen": "/images/MORIAH_6.png",
+    "etiqueta": "Premium"
+  },
+  {
+    "nombre": "MORIAH Intenso",
+    "origen": "Tolima, Colombia",
+    "descripcion": "Tostado oscuro y cuerpo robusto. Notas de cacao amargo y nueces. Perfecto para espresso y métodos fuertes.",
+    "caracteristicas": ["Oscuro", "Cacao", "Nueces"],
+    "imagen": "/images/MORIAH_6.png",
+    "etiqueta": "Intenso"
+  },
+  {
+    "nombre": "MORIAH Orgánico",
+    "origen": "Cauca, Colombia",
+    "descripcion": "Cultivado sin químicos, certificación orgánica. Sabor puro con notas de frutas rojas y miel natural.",
+    "caracteristicas": ["Orgánico", "Frutas Rojas", "Miel"],
+    "imagen": "/images/MORIAH_6.png",
+    "etiqueta": "Orgánico"
+  },
+  {
+    "nombre": "MORIAH Descafeinado",
+    "origen": "Santander, Colombia",
+    "descripcion": "Proceso natural de descafeinado. Mantiene todo el sabor sin la cafeína, con notas suaves de vainilla y almendra.",
+    "caracteristicas": ["Sin Cafeína", "Vainilla", "Almendra"],
+    "imagen": "/images/MORIAH_6.png",
+    "etiqueta": "Sin Cafeína"
+  },
+  {
+    "nombre": "MORIAH Edición Especial",
+    "origen": "Sierra Nevada, Colombia",
+    "descripcion": "Lote único de micro-terreno con fermentación extendida y perfil exótico de frutas tropicales y especias dulces.",
+    "caracteristicas": ["Limitado", "Tropical", "Especias"],
+    "imagen": "/images/MORIAH_6.png",
+    "etiqueta": "Ed. Limitada"
+  }
+]
