@@ -1,50 +1,38 @@
 [
   {
-    "nombre": "MORIAH Clásico",
-    "origen": "Huila, Colombia",
-    "descripcion": "Balance perfecto entre cuerpo y acidez, con notas de chocolate y caramelo. Ideal para comenzar el día con energía.",
-    "caracteristicas": ["Medio", "Chocolate", "Caramelo"],
-    "imagen": "/images/MORIAH_6.png",
-    "etiqueta": "Bestseller"
+    "name": "Bourbon Rosado",
+    "image": "/images/cafe-bolsas.jpeg",
+    "badge": "Especial",
+    "origin": "Finca La Esmeralda, Colombia",
+    "height": 1800,
+    "process": "Lavado",
+    "sca": 85,
+    "notes": "Chocolate, Piel de Naranja, Grosella Negra, Gaseosa de Toronja",
+    "features": ["Tueste Medio", "100% Arábica", "Comercio Justo"],
+    "price": 45000
   },
   {
-    "nombre": "MORIAH Premium",
-    "origen": "Nariño, Colombia",
-    "descripcion": "Selección especial de altura. Perfil complejo con notas florales, cítricos y dulzura natural para paladares exigentes.",
-    "caracteristicas": ["Claro", "Floral", "Cítrico"],
-    "imagen": "/images/MORIAH_6.png",
-    "etiqueta": "Premium"
+    "name": "Geisha",
+    "image": "/images/cafe-bolsas.jpeg",
+    "badge": "Premium",
+    "origin": "Finca San Rafael, Colombia",
+    "height": 1700,
+    "process": "Natural",
+    "sca": 88,
+    "notes": "Flor de Jamaica, Tomillo, Toronjil",
+    "features": ["Tueste Claro", "Edición Limitada", "Orgánico"],
+    "price": 75000
   },
   {
-    "nombre": "MORIAH Intenso",
-    "origen": "Tolima, Colombia",
-    "descripcion": "Tostado oscuro y cuerpo robusto. Notas de cacao amargo y nueces. Perfecto para espresso y métodos fuertes.",
-    "caracteristicas": ["Oscuro", "Cacao", "Nueces"],
-    "imagen": "/images/MORIAH_6.png",
-    "etiqueta": "Intenso"
-  },
-  {
-    "nombre": "MORIAH Orgánico",
-    "origen": "Cauca, Colombia",
-    "descripcion": "Cultivado sin químicos, certificación orgánica. Sabor puro con notas de frutas rojas y miel natural.",
-    "caracteristicas": ["Orgánico", "Frutas Rojas", "Miel"],
-    "imagen": "/images/MORIAH_6.png",
-    "etiqueta": "Orgánico"
-  },
-  {
-    "nombre": "MORIAH Descafeinado",
-    "origen": "Santander, Colombia",
-    "descripcion": "Proceso natural de descafeinado. Mantiene todo el sabor sin la cafeína, con notas suaves de vainilla y almendra.",
-    "caracteristicas": ["Sin Cafeína", "Vainilla", "Almendra"],
-    "imagen": "/images/MORIAH_6.png",
-    "etiqueta": "Sin Cafeína"
-  },
-  {
-    "nombre": "MORIAH Edición Especial",
-    "origen": "Sierra Nevada, Colombia",
-    "descripcion": "Lote único de micro-terreno con fermentación extendida y perfil exótico de frutas tropicales y especias dulces.",
-    "caracteristicas": ["Limitado", "Tropical", "Especias"],
-    "imagen": "/images/MORIAH_6.png",
-    "etiqueta": "Ed. Limitada"
+    "name": "Blend Catillo Caturra",
+    "image": "/images/cafe-bolsas.jpeg",
+    "badge": "Origen",
+    "origin": "Finca La Esmeralda, Colombia",
+    "height": 1600,
+    "process": "Hidro",
+    "sca": 85,
+    "notes": "Chocolate, Piel de Naranja, Uva",
+    "features": ["Tueste Medio", "100% Arábica", "Comercio Justo"],
+    "price": 52000
   }
 ]

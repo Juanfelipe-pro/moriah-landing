@@ -1,8 +1,70 @@
+/* ==========================================================================
+   VARIABLES / RESET - MEJORADO SEGÚN BRANDBOARD MORIAH
+   ========================================================================== */
 :root {
-  --primary-color: #19332f;
-  --secondary-color: #cf8e08;
-  --accent-light: #f9df7b;
-  --bg-cream: #f0debd;
+  /* Colores principales del brandboard */
+  --primary-color: #19332f;      /* Dark Pine Green */
+  --secondary-color: #cf8e08;    /* Yellow Ochre */
+  --accent-light: #f9df7b;       /* Amarillo claro */
+  --bg-cream: #f0debd;           /* Alabaster Gleam */
+  
+  /* Colores derivados para estados */
+  --primary-hover: #0f211e;
+  --secondary-hover: #b37a07;
+  --accent-hover: #f7d34d;
+  
+  /* Colores para textos */
+  --text-primary: #19332f;
+  --text-secondary: #2a4a45;
+  --text-muted: #666666;
+  --text-white: #ffffff;
+  
+  /* Efectos de foil dorado (simular acabado metalizado) */
+  --gold-gradient: linear-gradient(135deg, #cf8e08 0%, #f9df7b 50%, #cf8e08 100%);
+  --gold-metallic: linear-gradient(145deg, #b37a07 0%, #cf8e08 35%, #f9df7b 50%, #cf8e08 65%, #b37a07 100%);
+  --gold-shadow: 0 8px 32px rgba(207, 142, 8, 0.4);
+  --gold-glow: 0 0 20px rgba(249, 223, 123, 0.6);
+  
+  /* Overlays y sombras */
+  --overlay-dark: rgba(25, 51, 47, 0.85);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.2);
+  
+  /* Sistema de espaciado consistente */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+  --spacing-xl: 80px;
+  --spacing-2xl: 120px;
+  
+  /* Border radius consistente */
+  --radius-sm: 8px;
+  --radius-md: 15px;
+  --radius-lg: 25px;
+  --radius-xl: 30px;
+  --radius-full: 50px;
+  
+  /* Transiciones */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.6s ease;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('../assets/Fonts/Satoshi-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TBJ Siromi';
+  src: url('../assets/Fonts/TBJ Siromi.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
 }
 
 * {
@@ -11,11 +73,38 @@
   box-sizing: border-box;
 }
 
+/* Tipografía según brandboard - Usando alternativas web-safe similares */
 body {
-  font-family: "Playfair Display", serif;
-  color: var(--primary-color);
-  overflow-x: hidden;
+  font-family: 'TBJ Siromi', 'Georgia', serif;
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* Jerarquía tipográfica */
+h1, h2, h3, h4, h5, h6,
+.heading,
+.section-title,
+.product-name,
+.hero-title,
+.navbar-brand,
+.btn,
+.badge {
+  font-family: 'Satoshi', 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Tamaños de texto */
+h1, .h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h2, .h2 { font-size: clamp(2rem, 4vw, 3rem); }
+h3, .h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
+h4, .h4 { font-size: 1.5rem; }
+h5, .h5 { font-size: 1.25rem; }
+h6, .h6 { font-size: 1rem; }
+
+p { font-size: 1rem; line-height: 1.8; }
 
 .hero-description .highlight {
   color: var(--secondary-color);
@@ -23,46 +112,47 @@ body {
 }
 
 
-/* ================= Animaciones ================= */
+/* ==========================================================================
+   ANIMACIONES
+   ========================================================================== */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  from { opacity: 0; transform: translateX(50px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes float {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(3deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-20px) rotate(3deg); }
 }
 
-/* ================= Navbar + Hero con patrón monocromático tipo Moriah ================= */
+@keyframes patternScroll {
+  0%   { background-position: 0 0, 0 0; }
+  100% { background-position: 100px 120px, -100px 150px; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes goldGlow {
+  0%, 100% { box-shadow: var(--gold-shadow); }
+  50% { box-shadow: var(--gold-glow); }
+}
+
+
+/* ==========================================================================
+   NAVBAR + HERO BACKGROUND (PATRÓN ESTÉTICO MORIAH) - MEJORADO
+   ========================================================================== */
 .navbar,
 .hero-section {
   position: relative;
   background-color: var(--primary-color);
-
-  /* 🌿 Patrón vectorial hecho con líneas cruzadas en el mismo tono */
   background-image:
     repeating-linear-gradient(
       45deg,
@@ -81,43 +171,85 @@ body {
   background-size: 80px 80px;
   background-blend-mode: overlay;
   animation: patternScroll 90s linear infinite alternate;
-  z-index: 0;
 }
 
-/* 🎞️ Movimiento suave del entramado */
-@keyframes patternScroll {
-  0% {
-    background-position: 0 0, 0 0;
-  }
-  100% {
-    background-position: 100px 120px, -100px 150px;
-  }
-}
 
-/* ================= Navbar ================= */
+/* ==========================================================================
+   NAVBAR - MEJORADO
+   ========================================================================== */
 .navbar {
   padding: 1.5rem 0;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: none;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: var(--spacing-sm);
   font-weight: 800;
   color: white !important;
-  font-family: "Inter", sans-serif;
   font-size: 1.5rem;
   letter-spacing: -0.5px;
+  transition: var(--transition-normal);
 }
 
-/* ================= Hero ================= */
+.navbar-brand:hover {
+  transform: scale(1.02);
+}
+
+.navbar-logo {
+  max-height: 60px;
+  transition: var(--transition-normal);
+  filter: drop-shadow(0 4px 8px rgba(249, 223, 123, 0.3));
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 12px rgba(249, 223, 123, 0.5));
+}
+
+/* Links navbar - MEJORADO */
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  position: relative;
+  transition: var(--transition-normal);
+  padding: 0.5rem 1rem;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: var(--gold-gradient);
+  transition: width var(--transition-normal);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.navbar-nav .nav-link:hover {
+  color: var(--accent-light) !important;
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%;
+}
+
+
+/* ==========================================================================
+   HERO SECTION - MEJORADO
+   ========================================================================== */
 .hero-section {
   min-height: 100vh;
-  padding: 120px 0;
+  padding: var(--spacing-2xl) 0;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -127,7 +259,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+  background: radial-gradient(circle at 20% 50%, rgba(249, 223, 123, 0.05) 0%, transparent 70%);
   z-index: 0;
 }
 
@@ -136,25 +268,25 @@ body {
   z-index: 1;
 }
 
-/* ================= Hero contenido ================= */
+/* --- Hero contenido --- */
 .hero-title {
   font-size: clamp(3rem, 7vw, 6rem);
   font-weight: 900;
   color: white;
   line-height: 1;
-  margin-bottom: 30px;
-  font-family: "Inter", sans-serif;
+  margin-bottom: var(--spacing-md);
   letter-spacing: -3px;
   text-transform: uppercase;
   animation: fadeInUp 1s ease;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .hero-subtitle {
   font-size: clamp(1.2rem, 2vw, 1.5rem);
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 20px;
+  color: var(--accent-light);
+  margin-bottom: var(--spacing-sm);
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   animation: fadeInUp 1s ease 0.2s backwards;
 }
@@ -162,38 +294,57 @@ body {
 .hero-description {
   color: rgba(255, 255, 255, 0.9);
   font-size: 1.2rem;
-  margin-bottom: 40px;
+  margin-bottom: var(--spacing-lg);
   max-width: 600px;
   line-height: 1.8;
   animation: fadeInUp 1s ease 0.4s backwards;
 }
 
+/* --- Botón hero - MEJORADO CON EFECTO FOIL --- */
 .btn-custom {
-  background-color: white;
+  background: var(--gold-gradient);
+  background-size: 200% auto;
   color: var(--primary-color);
   border: none;
   padding: 18px 40px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
   font-size: 1rem;
-  transition: all 0.4s ease;
+  transition: var(--transition-normal);
   font-weight: 700;
-  font-family: "Inter", sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
-  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+  box-shadow: var(--gold-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.btn-custom:hover::before {
+  left: 100%;
 }
 
 .btn-custom:hover {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-position: right center;
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.25);
+  box-shadow: var(--gold-glow);
+  color: var(--primary-color);
 }
 
 .hero-image img {
   max-width: 100%;
   height: auto;
   filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
-  border-radius: 30px;
+  border-radius: var(--radius-xl);
   animation: float 6s ease-in-out infinite;
 }
 
@@ -204,28 +355,47 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px;
-  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.1);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--shadow-lg);
   animation: float 6s ease-in-out infinite;
 }
 
-/* ================= Stats ================= */
+
+/* ==========================================================================
+   STATS / IMPACTO - MEJORADO
+   ========================================================================== */
 .stats-section {
   padding: 100px 0;
   background: var(--bg-cream);
+  position: relative;
+}
+
+.stats-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(207, 142, 8, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(25, 51, 47, 0.03) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .stat-card {
   text-align: center;
-  padding: 40px 20px;
+  padding: var(--spacing-lg) var(--spacing-sm);
+  position: relative;
 }
 
 .stat-number {
   font-size: 4rem;
   font-weight: 900;
-  color: var(--secondary-color);
-  font-family: "Inter", sans-serif;
+  background: var(--gold-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 10px;
+  animation: shimmer 3s linear infinite;
+  background-size: 200% auto;
 }
 
 .stat-label {
@@ -236,10 +406,134 @@ body {
   letter-spacing: 1px;
 }
 
-/* ================= Products ================= */
-.products-section {
-  padding: 120px 0;
+
+/* ==========================================================================
+   QUIÉNES SOMOS / ABOUT - MEJORADO
+   ========================================================================== */
+.about-section {
+  padding: var(--spacing-2xl) 0;
   background: white;
+}
+
+.about-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  transition: var(--transition-slow);
+  border: 3px solid var(--bg-cream);
+}
+
+.about-image:hover {
+  transform: scale(1.03) rotate(-1deg);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+}
+
+.about-text {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+.about-text strong {
+  color: var(--secondary-color);
+  font-weight: 700;
+}
+
+.about-highlight {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--primary-color);
+  font-weight: 600;
+  padding: var(--spacing-md);
+  background: linear-gradient(135deg, var(--bg-cream) 0%, #faf3e0 100%);
+  border-left: 5px solid var(--secondary-color);
+  border-radius: var(--radius-md);
+  margin-top: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* ==========================================================================
+   PROCESS INFO SECTION - MEJORADO
+   ========================================================================== */
+.process-info-section {
+  padding: 100px 0;
+  background: var(--bg-cream);
+}
+
+.process-info-card {
+  background: white;
+  padding: var(--spacing-lg) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  transition: var(--transition-normal);
+  height: 100%;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid transparent;
+}
+
+.process-info-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--secondary-color);
+}
+
+.process-info-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--gold-gradient);
+  background-size: 200% auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  font-size: 2rem;
+  color: white;
+  transition: var(--transition-normal);
+  box-shadow: var(--gold-shadow);
+}
+
+.process-info-card:hover .process-info-icon {
+  transform: rotate(360deg) scale(1.1);
+  background: var(--primary-color);
+  animation: goldGlow 2s infinite;
+}
+
+.process-info-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.process-info-text strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.process-closing-text {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--primary-color);
+  font-weight: 600;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ==========================================================================
+   PRODUCTS - MEJORADO CON EFECTOS PREMIUM
+   ========================================================================== */
+.products-section {
+  padding: var(--spacing-2xl) 0;
+  background: white;
+  position: relative;
 }
 
 .section-title {
@@ -247,48 +541,78 @@ body {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 900;
   color: var(--primary-color);
-  margin-bottom: 20px;
-  font-family: "Inter", sans-serif;
+  margin-bottom: var(--spacing-sm);
   letter-spacing: -2px;
   text-transform: uppercase;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: var(--gold-gradient);
+  margin: var(--spacing-sm) auto 0;
+  border-radius: 2px;
 }
 
 .section-subtitle {
   text-align: center;
   color: var(--secondary-color);
-  margin-bottom: 80px;
+  margin-bottom: var(--spacing-xl);
   font-size: 1.3rem;
   font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
 }
 
+/* --- Cards de producto - MEJORADO --- */
 .product-card {
   background: white;
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  margin-bottom: 30px;
+  margin-bottom: var(--spacing-md);
   height: 100%;
   display: flex;
   flex-direction: column;
   border: 2px solid #f0f0f0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-md);
   transform-style: preserve-3d;
+  position: relative;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--gold-gradient);
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  z-index: -1;
+}
+
+.product-card:hover::before {
+  opacity: 1;
 }
 
 .product-card:hover {
-  transform: translateY(-20px) rotateX(5deg) scale(1.02);
-  border-color: var(--secondary-color);
-  box-shadow: 0 30px 60px rgba(207, 142, 8, 0.3);
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(25, 51, 47, 0.2);
 }
 
+/* --- Imagen producto --- */
 .product-image-container {
   width: 100%;
   height: 280px;
   overflow: hidden;
   position: relative;
-  background: var(--bg-cream);
+  background: linear-gradient(135deg, var(--bg-cream) 0%, #faf3e0 100%);
 }
 
 .product-image {
@@ -299,27 +623,28 @@ body {
 }
 
 .product-card:hover .product-image {
-  transform: scale(1.15) rotate(2deg);
+  transform: scale(1.1) rotate(1deg);
 }
 
 .product-badge {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: var(--secondary-color);
+  background: var(--primary-color);
   color: white;
   padding: 8px 16px;
-  border-radius: 50px;
+  border-radius: var(--radius-full);
   font-weight: 700;
   font-size: 0.75rem;
-  font-family: "Inter", sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--secondary-color);
 }
 
+/* --- Info del producto --- */
 .product-info {
-  padding: 30px;
+  padding: var(--spacing-md);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -330,49 +655,180 @@ body {
   color: var(--primary-color);
   margin-bottom: 12px;
   font-weight: 800;
-  font-family: "Inter", sans-serif;
 }
 
 .product-origin {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 15px;
 }
 
-.product-description {
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin-bottom: 20px;
-  flex-grow: 1;
+.product-origin i {
+  color: var(--secondary-color);
 }
 
+/* --- Notas de sabor - MEJORADO --- */
+.product-notes {
+  background: linear-gradient(135deg, #e8f5f3 0%, #f0f9f7 100%);
+  border-left: 4px solid var(--primary-color);
+  padding: 15px 18px;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.product-notes::before {
+  content: '☕';
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  opacity: 0.08;
+}
+
+.notes-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.notes-label i {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+}
+
+.notes-content {
+  color: #2a4a45;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.product-card:hover .product-notes {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #2a4a45 100%);
+  border-left-color: var(--secondary-color);
+}
+
+.product-card:hover .notes-label,
+.product-card:hover .notes-content {
+  color: white !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.product-card:hover .notes-label i {
+  color: var(--accent-light);
+  filter: drop-shadow(0 0 4px rgba(249, 223, 123, 0.6));
+}
+
+/* --- Features --- */
 .product-features {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   justify-content: center;
+  margin-bottom: var(--spacing-sm);
 }
 
 .feature-tag {
-  background: var(--bg-cream);
+  background: #e8f5f3;
   color: var(--primary-color);
   padding: 8px 16px;
-  border-radius: 20px;
+  border-radius: var(--radius-full);
   font-size: 0.8rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: var(--transition-normal);
+  border: 1px solid transparent;
 }
 
 .product-card:hover .feature-tag {
-  background: var(--secondary-color);
+  background: var(--primary-color);
   color: white;
+  border-color: var(--secondary-color);
 }
 
+/* --- Footer con precio y botón - MEJORADO --- */
+.product-footer {
+  margin-top: auto;
+  padding-top: var(--spacing-sm);
+  border-top: 2px solid #e8f5f3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.product-price {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--secondary-color); /* #cf8e08 - dorado sólido */
+  letter-spacing: -1px;
+  font-family: 'Satoshi', 'Inter', sans-serif;
+  text-shadow: 0 2px 4px rgba(207, 142, 8, 0.2);
+  transition: all 0.3s ease;
+}
+.btn-buy {
+  background: var(--secondary-color); /* Dorado sólido */
+  color: white; /* Texto blanco */
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: 'Satoshi', 'Inter', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(207, 142, 8, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto shimmer del botón */
+.btn-buy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.btn-buy:hover::before {
+  left: 100%;
+}
+
+/* Hover del botón - cambia a verde */
+.btn-buy:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(25, 51, 47, 0.4);
+}
+
+.btn-buy:active {
+  transform: translateY(-1px);
+}
+
+/* --- Shine effect --- */
 .card-shine {
   position: absolute;
   top: -50%;
@@ -389,133 +845,162 @@ body {
   left: 100%;
 }
 
-/* ================= Process ================= */
- .process-section {
-            padding: 120px 0;
-            background: var(--primary-color);
-        }
-        
-        .process-section .section-title {
-            color: white;
-        }
-        
-        .process-section .section-subtitle {
-            color: var(--accent-light);
-        }
+.product-card:hover .product-price {
+  color: var(--primary-color);
+  text-shadow: 0 2px 8px rgba(25, 51, 47, 0.3);
+  transform: scale(1.05);
+}
+
+/* ==========================================================================
+   PROCESS SECTION - MEJORADO
+   ========================================================================== */
+.process-section {
+  padding: var(--spacing-2xl) 0;
+  background: var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.process-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.02) 0px,
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px,
+      transparent 30px
+    );
+  pointer-events: none;
+}
+
+.process-section .section-title {
+  color: white;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.process-section .section-subtitle {
+  color: var(--accent-light);
+}
+
+/* --- Video container --- */
 .video-container {
-    position: relative;
-    width: 100%;
-    max-width: 780px;   
-    margin: 0 auto 50px;
-    padding-bottom: 45%; 
-    overflow: hidden;
-
-    background: #0f1f1d; 
-    border-radius: 25px;
-
-    box-shadow: 0 15px 45px rgba(0,0,0,0.35);
-    transition: transform .4s ease, box-shadow .4s ease;
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #0f1f1d;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 15px 45px rgba(0,0,0,0.4);
+  transition: var(--transition-normal);
+  border: 3px solid var(--secondary-color);
 }
 
 .video-container:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 25px 65px rgba(0,0,0,0.45);
+  transform: translateY(-6px);
+  box-shadow: 0 25px 65px rgba(207, 142, 8, 0.3);
 }
-        
-        .video-container iframe,
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border-radius: 20px;
-        }
-        
+
 .video-container video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 25px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--radius-lg) - 3px);
+  display: block;
 }
 
+/* Controles de video personalizados */
 .video-container video::-webkit-media-controls-panel {
-    background: rgba(0,0,0,0.25);
+  background: rgba(0,0,0,0.5);
 }
 
-        
-        .process-step {
-            text-align: center;
-            padding: 40px 20px;
-        }
-        
-        .process-icon {
-            width: 100px;
-            height: 100px;
-            background: var(--secondary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2.5rem;
-            color: white;
-            box-shadow: 0 10px 30px rgba(207, 142, 8, 0.4);
-            transition: all 0.5s ease;
-        }
-        
-        .process-step:hover .process-icon {
-            transform: scale(1.2) rotateY(360deg);
-        }
-        
-        .process-number {
-            font-size: 3rem;
-            font-weight: 900;
-            color: var(--accent-light);
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 15px;
-        }
-        
-        .process-title {
-            font-size: 1.5rem;
-            color: white;
-            font-weight: 700;
-            margin-bottom: 15px;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .process-description {
-            color: rgba(255,255,255,0.8);
-            font-size: 1rem;
-            line-height: 1.7;
-        }
+.video-container video::-webkit-media-controls-play-button {
+  background-color: var(--secondary-color);
+  border-radius: 50%;
+}
 
-/* ================= Map ================= */
+/* --- Steps --- */
+.process-step {
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-sm);
+}
+
+.process-icon {
+  width: 100px;
+  height: 100px;
+  background: var(--gold-gradient);
+  background-size: 200% auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 25px;
+  font-size: 2.5rem;
+  color: white;
+  box-shadow: var(--gold-shadow);
+  transition: var(--transition-slow);
+  border: 3px solid rgba(249, 223, 123, 0.3);
+}
+
+.process-step:hover .process-icon {
+  transform: scale(1.2) rotateY(360deg);
+  animation: goldGlow 2s infinite;
+}
+
+.process-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--accent-light);
+  margin-bottom: 15px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.process-title {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.process-description {
+  color: rgba(255,255,255,0.85);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+
+/* ==========================================================================
+   MAP SECTION - MEJORADO
+   ========================================================================== */
 .map-section {
-  padding: 120px 0;
+  padding: var(--spacing-2xl) 0;
   background: var(--bg-cream);
 }
 
 .map-container {
   background: white;
-  border-radius: 30px;
+  border-radius: var(--radius-xl);
   padding: 60px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-xl);
+  border: 3px solid var(--bg-cream);
 }
 
 .map-placeholder {
   width: 100%;
   height: 500px;
   background: linear-gradient(135deg, var(--primary-color) 0%, #2a4a45 100%);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: var(--spacing-lg);
   position: relative;
   overflow: hidden;
+  border: 3px solid var(--secondary-color);
 }
 
 .map-placeholder::before {
@@ -540,60 +1025,117 @@ body {
 
 .map-subtitle {
   text-align: center;
-  color: #666;
-  margin-bottom: 40px;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-lg);
   font-size: 1.1rem;
 }
 
 .location-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .location-card {
-  background: var(--bg-cream);
-  padding: 25px;
-  border-radius: 15px;
+  background: linear-gradient(135deg, var(--bg-cream) 0%, #faf3e0 100%);
+  padding: var(--spacing-md) 25px;
+  border-radius: var(--radius-md);
   text-align: center;
-  transition: all 0.3s ease;
+  transition: var(--transition-normal);
   border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  box-shadow: var(--shadow-sm);
 }
 
 .location-card:hover {
   border-color: var(--secondary-color);
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(207, 142, 8, 0.2);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, #faf3e0 0%, var(--bg-cream) 100%);
 }
 
 .location-icon {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--secondary-color);
   margin-bottom: 15px;
+  transition: var(--transition-normal);
+  filter: drop-shadow(0 4px 8px rgba(207, 142, 8, 0.3));
 }
 
-/* ================= Footer ================= */
+.location-card:hover .location-icon {
+  transform: scale(1.15) rotateY(180deg);
+  color: var(--primary-color);
+}
+
+.location-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.location-address {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* ==========================================================================
+   FOOTER - MEJORADO
+   ========================================================================== */
 .footer {
-  background-color: #0d1a18;
+  background: linear-gradient(180deg, #0d1a18 0%, #0a1210 100%);
   color: white;
-  padding: 80px 0 40px;
+  padding: var(--spacing-xl) 0 var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold-gradient);
 }
 
 .footer-brand {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: var(--spacing-sm);
   margin-bottom: 25px;
   font-size: 1.8rem;
   font-weight: 800;
-  font-family: "Inter", sans-serif;
 }
 
 .footer-text {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.05rem;
   line-height: 1.8;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+}
+
+.footer-text strong {
+  color: var(--accent-light);
+  font-weight: 700;
+}
+
+.footer-tagline {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-top: 15px;
+  margin-bottom: var(--spacing-md);
 }
 
 .social-icons {
@@ -604,47 +1146,123 @@ body {
 .social-icons a {
   width: 50px;
   height: 50px;
-  background: var(--secondary-color);
+  background: var(--gold-gradient);
+  background-size: 200% auto;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-size: 1.2rem;
-  transition: all 0.3s ease;
+  transition: var(--transition-normal);
+  box-shadow: var(--shadow-md);
 }
 
 .social-icons a:hover {
-  background: var(--accent-light);
-  color: var(--primary-color);
+  background-position: right center;
   transform: translateY(-5px) rotate(360deg);
+  box-shadow: var(--gold-glow);
 }
 
 .footer-info h5 {
   color: var(--secondary-color);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-size: 1.3rem;
   font-weight: 700;
 }
 
 .footer-info p {
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.footer-info p i {
+  color: var(--secondary-color);
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: var(--transition-normal);
+}
+
+.footer-link:hover {
+  color: var(--accent-light);
+  text-decoration: underline;
+}
+
+.footer-cta {
+  margin-top: 25px;
+}
+
+.btn-footer {
+  display: inline-flex;
+  align-items: center;
+  background: var(--gold-gradient);
+  background-size: 200% auto;
+  color: white;
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: var(--transition-normal);
+  box-shadow: var(--gold-shadow);
+}
+
+.btn-footer:hover {
+  background-position: right center;
+  transform: translateY(-3px);
+  box-shadow: var(--gold-glow);
+  text-decoration: none;
+  color: white;
 }
 
 .copyright {
   text-align: center;
   margin-top: 60px;
-  padding-top: 30px;
+  padding-top: var(--spacing-md);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
 }
 
-/* ================= Responsive ================= */
+
+/* ==========================================================================
+   RESPONSIVE - MEJORADO
+   ========================================================================== */
+@media (max-width: 992px) {
+  :root {
+    --spacing-2xl: 80px;
+    --spacing-xl: 60px;
+  }
+
+  .location-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer {
+    padding: 60px 0 30px;
+  }
+
+  .footer-cta {
+    margin-bottom: var(--spacing-sm);
+  }
+}
+
 @media (max-width: 768px) {
+  :root {
+    --spacing-2xl: 60px;
+    --spacing-xl: 40px;
+  }
+
   .hero-section {
-    padding: 80px 0;
+    padding: var(--spacing-xl) 0;
   }
 
   .product-image-container {
@@ -656,6 +1274,112 @@ body {
   }
 
   .map-container {
-    padding: 30px 20px;
+    padding: var(--spacing-md) var(--spacing-sm);
   }
+
+  .video-container {
+    max-width: 100%;
+    border-radius: var(--radius-lg);
+  }
+  
+  .video-container video {
+    border-radius: calc(var(--radius-lg) - 3px);
+  }
+}
+
+@media (max-width: 576px) {
+  .product-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .btn-buy {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .product-price {
+    font-size: 1.7rem;
+  }
+
+  .location-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .map-container {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+  
+  .map-placeholder {
+    height: 300px;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .footer-info {
+    text-align: center;
+  }
+
+  .footer-info p {
+    justify-content: center;
+  }
+
+  .btn-footer {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .video-container {
+    border-radius: var(--radius-md);
+  }
+  
+  .video-container video {
+    border-radius: calc(var(--radius-md) - 3px);
+  }
+}
+
+
+/* ==========================================================================
+   UTILIDADES ADICIONALES
+   ========================================================================== */
+
+/* Efecto de foil en textos */
+.text-gold {
+  background: var(--gold-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Contenedor con límite de ancho */
+.container-narrow {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Separador decorativo */
+.divider-gold {
+  width: 100px;
+  height: 4px;
+  background: var(--gold-gradient);
+  margin: var(--spacing-md) auto;
+  border-radius: 2px;
+}
+
+/* Badges circulares premium */
+.badge-premium {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--gold-gradient);
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: var(--gold-shadow);
+  animation: goldGlow 3s infinite;
 }

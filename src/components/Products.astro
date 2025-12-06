@@ -2,31 +2,50 @@
 import products from '../../public/data/products.json';
 ---
 
-<section class="products-section" id="productos">
+
+<section class="products-section" id="cafes">
   <div class="container">
     <h2 class="section-title">Nuestros Cafés</h2>
-    <p class="section-subtitle">Tostado de Forma Artesanal</p>
-
+    <p class="section-subtitle">Selección Premium</p>
     <div class="row">
-      {products.map((p) => (
+      {products.map((cafe) => (
         <div class="col-lg-4 col-md-6">
           <div class="product-card">
             <div class="card-shine"></div>
             <div class="product-image-container">
-              <img src={p.imagen} class="product-image" alt={p.nombre} />
-              <div class="product-badge">{p.etiqueta}</div>
+              <img src={cafe.image} alt={cafe.name} class="product-image" />
+              <span class="product-badge">{cafe.badge}</span>
             </div>
             <div class="product-info">
-              <h5 class="product-name">{p.nombre}</h5>
+              <h3 class="product-name">{cafe.name}</h3>
               <div class="product-origin">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>{p.origen}</span>
+                <i class="fas fa-map-marker-alt"></i> {cafe.origin}
               </div>
-              <p class="product-description">{p.descripcion}</p>
+              
+              <div class="product-notes">
+                <div class="notes-label">
+                  <i class="fas fa-coffee"></i>
+                  Notas de sabor
+                </div>
+                <div class="notes-content">
+                  {cafe.notes}
+                </div>
+              </div>
+
               <div class="product-features">
-                {p.caracteristicas.map((c) => (
-                  <span class="feature-tag">{c}</span>
+                {cafe.features.map((feature) => (
+                  <span class="feature-tag">{feature}</span>
                 ))}
+              </div>
+              
+              <div class="product-footer">
+                <div class="product-price">
+                  ${cafe.price.toLocaleString('es-CO')}
+                </div>
+                <button class="btn-buy">
+                  <i class="fas fa-shopping-cart"></i>
+                  Comprar
+                </button>
               </div>
             </div>
           </div>
